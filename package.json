@@ -1,15 +1,40 @@
 {
-  "name": "idle-redux",
-  "version": "0.0.1",
+  "name": "redux-idle-callback",
+  "version": "1.0.0",
   "description": "Middleware to detect when redux store has been idle",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:lint": "eslint --ignore-path .npmignore --ext js,jsx src __tests__",
+    "test:unit": "jest",
+    "test": "npm run test:unit && npm run test:lint",
+    "prepublish": "npm run build",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@stash.aexp.com/one/idle-redux.git"
+    "url": "https://github.com/americanexpress/redux-idle-callback.git"
   },
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "redux",
+    "middleware",
+    "idle"
+  ],
+  "author": "Andrew Sutedja <andrew.sutedja@aexp.com>",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "amex-jest-preset": "^5.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-amex": "^1.1.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.5.0",
+    "eslint-config-amex": "^8.0.1",
+    "jest": "^23.1.0"
+  },
+  "jest": {
+    "preset": "amex-jest-preset",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {}
 }
