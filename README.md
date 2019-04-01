@@ -2,6 +2,9 @@
 
 Redux middleware that queues an action to be dispatched during the Redux store's idle periods.
 
+> Want to get paid for your contributions to `redux-idle-callback`?
+> Send your resume to oneamex.careers@aexp.com
+
 ## Motivation
 
 In a single-page application, accurately reporting a page load when modules are being loaded on to
@@ -42,7 +45,7 @@ npm i --save redux-idle-callback
 ```
 
 ## createIdleMiddleware
-`createIdleMiddleware` will setup the conditions for when or how often you want the idle state to be reported. 
+`createIdleMiddleware` will setup the conditions for when or how often you want the idle state to be reported.
 By default, `createIdleMiddleware` returns middleware that will stop polling for idleness after dispatching its first idle action.
 
 ```
