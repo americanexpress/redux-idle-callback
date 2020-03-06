@@ -46,7 +46,6 @@
       "<rootDir>/commitlint.config.js"
     ]
   },
-  "dependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "npm run test",
