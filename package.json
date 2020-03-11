@@ -6,7 +6,8 @@
   "scripts": {
     "test:lint": "eslint --ignore-path .npmignore --ext js,jsx src __tests__",
     "test:unit": "jest",
-    "test": "npm run test:unit && npm run test:lint",
+    "test": "npm run test:unit && npm run test:lint && npm run test:git-history",
+    "test:git-history": "commitlint --from origin/master --to HEAD",
     "test:lockfile": "lockfile-lint -p package-lock.json -t npm -a npm -o https: -c -i",
     "posttest": "npm run test:lockfile",
     "prepublish": "npm run build",
@@ -26,10 +27,13 @@
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "amex-jest-preset": "^5.0.0",
     "babel-preset-amex": "^2.0.0",
     "eslint": "^5.5.0",
     "eslint-config-amex": "^8.0.1",
+    "husky": "^4.2.3",
     "jest": "^24.1.0",
     "lockfile-lint": "^3.0.8"
   },
@@ -37,7 +41,15 @@
     "preset": "amex-jest-preset",
     "testPathIgnorePatterns": [
       "/node_modules/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/commitlint.config.js"
     ]
   },
-  "dependencies": {}
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
 }
