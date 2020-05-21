@@ -41,7 +41,7 @@ const createIdleMiddleware = ({
   };
 
   const idleInterval = () => {
-    if (interval === null) {
+    if (global.window && interval === null) {
       interval = setInterval(() => {
         const currentTime = Date.now();
         if (currentTime - timeOfLastAction >= idleTime) {

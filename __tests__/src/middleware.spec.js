@@ -39,6 +39,9 @@ describe('middleware', () => {
   });
 
   describe('default middleware setup', () => {
+    beforeEach(() => {
+      global.window = {};
+    });
     it('should return middleware and dispatch when idle', () => {
       setupMiddleware({});
       expect(setInterval).toHaveBeenCalledTimes(1);
@@ -53,11 +56,26 @@ describe('middleware', () => {
       expect(dispatch).toHaveBeenCalledTimes(1);
       expect(setInterval).toHaveBeenCalledTimes(1);
     });
+
+    it('should not call setInterval when not on a browser', () => {
+      global.window = false;
+      setupMiddleware({});
+      expect(setInterval).toHaveBeenCalledTimes(0);
+    });
   });
 
   describe('setup options', () => {
     beforeEach(() => {
+      global.window = {};
       jest.clearAllTimers();
+    });
+
+    it('should not call setInterval when not on a browser even with a START_IDLE action', () => {
+      global.window = false;
+      const nextAction = setupMiddleware({});
+      expect(setInterval).toHaveBeenCalledTimes(0);
+      nextAction(next)({ type: START_IDLE });
+      expect(setInterval).toHaveBeenCalledTimes(0);
     });
 
     it('should set the interval time', () => {
