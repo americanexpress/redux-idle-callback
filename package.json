@@ -25,17 +25,17 @@
   "author": "Andrew Sutedja <andrew.sutedja@aexp.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.3",
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "amex-jest-preset": "^5.0.0",
-    "babel-preset-amex": "^2.0.0",
+    "amex-jest-preset": "^6.1.0",
+    "babel-preset-amex": "^3.4.0",
     "eslint": "^5.5.0",
     "eslint-config-amex": "^8.0.1",
     "husky": "^4.2.3",
     "jest": "^24.1.0",
-    "lockfile-lint": "^3.0.8"
+    "lockfile-lint": "^4.3.6"
   },
   "jest": {
     "preset": "amex-jest-preset",
