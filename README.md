@@ -5,7 +5,7 @@
 > Redux middleware that queues an action to be dispatched during the Redux store's idle periods.
 
 [![npm](https://img.shields.io/npm/v/redux-idle-callback)](https://www.npmjs.com/package/redux-idle-callback)
-[![Travis (.org) branch](https://img.shields.io/travis/americanexpress/redux-idle-callback/master)](https://travis-ci.org/americanexpress/redux-idle-callback)
+![Health Check](https://github.com/americanexpress/redux-idle-callback/workflows/Health%20Check/badge.svg)
 
 ## 👩‍💻 Hiring 👨‍💻
 
