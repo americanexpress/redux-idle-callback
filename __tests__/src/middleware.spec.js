@@ -23,14 +23,14 @@ describe('middleware', () => {
     Date.now = jest.fn(() => a);
   };
 
-  jest.useFakeTimers();
+  jest.useFakeTimers({ legacyFakeTimers: true });
 
   beforeEach(() => {
     jest.clearAllMocks();
     setDate(0);
   });
 
-  const setupMiddleware = setup => createIdleMiddleware(setup)({ dispatch });
+  const setupMiddleware = (setup) => createIdleMiddleware(setup)({ dispatch });
 
   describe('startIdle', () => {
     it('should return action witht type: START_IDLE', () => {

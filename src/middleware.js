@@ -57,9 +57,9 @@ const createIdleMiddleware = ({
 
   idleInterval();
 
-  return next => (action) => {
+  return (next) => (action) => {
     timeOfLastAction = Date.now();
-    if ((action.type === START_IDLE && !alwaysOn)) {
+    if (action.type === START_IDLE && !alwaysOn) {
       idleInterval();
     }
     return next(action);
